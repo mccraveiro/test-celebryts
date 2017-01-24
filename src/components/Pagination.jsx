@@ -20,11 +20,11 @@ function Pagination({ current, total, setPage }) {
 
   return (
     <ul className="pagination">
-      {current > 1 &&
-        <li key="previous">
+      <li key="previous" className="pagination-previous">
+        {current > 1 &&
           <a href="#" onClick={e => handleClick(e, current - 1)}>Previous</a>
-        </li>
-      }
+        }
+      </li>
       {pages.map(i => (
         <li
           key={i}
@@ -36,11 +36,11 @@ function Pagination({ current, total, setPage }) {
           }
         </li>
       ))}
-      {current < total &&
-        <li key="next">
+      <li key="next" className="pagination-next">
+        {current < total &&
           <a href="#" onClick={e => handleClick(e, current + 1)}>Next</a>
-        </li>
-      }
+        }
+      </li>
     </ul>
   );
 }
