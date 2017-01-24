@@ -1,11 +1,13 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
 import Pagination from './components/Pagination';
-
-const setPage = page => console.log(page);
 
 function App() {
   return (
-    <Pagination current={7} total={20} setPage={setPage} />
+    <Provider store={store}>
+      <Pagination total={20} />
+    </Provider>
   );
 }
 

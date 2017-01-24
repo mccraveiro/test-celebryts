@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 function Pagination({ current, total, setPage }) {
   const pages = [];
@@ -43,4 +45,14 @@ function Pagination({ current, total, setPage }) {
   );
 }
 
-export default Pagination;
+const mapStateToProps = state => ({
+  current: state.current
+});
+
+const mapDispatchToProps = dispatch => ({
+  setPage(page) {
+    dispatch(actions.setPage(page));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pagination);
